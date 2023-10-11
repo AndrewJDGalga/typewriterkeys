@@ -3,7 +3,9 @@
 
 !.gitignore
 !SiteBoard/
+!SiteBoard/public/
 !SiteBoard/src/
+!SiteBoard/src/components
 !SiteBoard/src/css_dev
 !SiteBoard/src/css_prod
 !index.html
