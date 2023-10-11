@@ -24,8 +24,24 @@
   border-radius: 60%;
 }
 
+.page {
+  width: auto;
+  height: 60vh;
+  border: 2px solid gray;
+  border-radius: 4px;
+  margin: 0 auto;
+  background-color: white;
+}
+
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
+  height: 100%;
+  min-height: 100vh;
+  background-color: black;
 }
 
 /*# sourceMappingURL=mainstyle.css.map */
