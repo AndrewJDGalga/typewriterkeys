@@ -1,4 +1,5 @@
-import TypewriterKey from "./components/TypewriterKey"
+import TypewriterKey from "./components/TypewriterKey";
+import './css_prod/mainstyle.css';
 
 export default function App() {
   return (
