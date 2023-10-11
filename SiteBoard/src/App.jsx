@@ -4,7 +4,7 @@ import './css_prod/mainstyle.css';
 export default function App() {
   return (
     <div className="typewriterapp"> 
-      <TypewriterKey/>
+      <TypewriterKey majorKey={"a"} minorKey={"A"} />
     </div>
   )
 }
