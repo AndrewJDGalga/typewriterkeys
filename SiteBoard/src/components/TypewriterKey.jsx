@@ -1,3 +1,6 @@
+import { useEffect, useRef, useState } from "react";
+
+
 
 export default function TypewriterKey({majorKey, minorKey}) {
     const audioEffect = new Audio("/audio/TypewriterClickA.wav")
@@ -12,4 +15,6 @@ export default function TypewriterKey({majorKey, minorKey}) {
     return (
         <button className="typewriterkey" onClick={playAudio}>{majorKey}</button>
     );
+
+
 }

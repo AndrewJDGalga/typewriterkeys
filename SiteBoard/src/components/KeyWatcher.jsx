@@ -1,23 +1,21 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import TypewriterKey from "./TypewriterKey";
 
 export default function KeyWatcher() {
-    const [keyFired, setKeyFired] = useState("");
-    const [inputPressed, setInputPressed] = useState(false);
+    //const [keyFired, setKeyFired] = useState(null);
 
-    document.addEventListener("keydown", (event)=>{
-        if(inputPressed) return;
-        setInputPressed(true);
-        setKeyFired(event.key);
-    });
-    document.addEventListener("keyup", ()=>{
-        setInputPressed(false);
-        setKeyFired("");
-    });
+    const keypressed = useCallback((e)=>{
+        console.log(e.key);
+    })
 
-    console.log(keyFired);
-    
+    useEffect(()=>{
+        document.addEventListener("keydown", keypressed);
+        return ()=> document.removeEventListener("keydown", keypressed);
+    }, [keypressed]);
+
     return (
-        <>
-        </>
+        <div>
+            <TypewriterKey majorKey={"a"} minorKey={"A"}  />
+        </div>
     );
 }
