@@ -4,8 +4,6 @@ export default function TypewriterKey({majorKey, minorKey}) {
     const audioEffect = new Audio("/audio/TypewriterClickA.wav");
     const [selectedKey, setSelectedKey] = useState(false);
 
-    const typeWriterKey = <button className={selectedKey ? "typewriterkey_active" : "typewriterkey"} onMouseDown={mouseDown} onMouseUp={mouseUp}>{majorKey}</button>
-    
     const keypressed = useCallback((e)=>{
         if(e.key == majorKey && !selectedKey) {
             mouseDown();
@@ -38,8 +36,6 @@ export default function TypewriterKey({majorKey, minorKey}) {
     }
 
     return (
-        <>
-        {typeWriterKey}
-        </>
+        <button className={selectedKey ? "typewriterkey typewriterkey_active" : "typewriterkey"} onMouseDown={mouseDown} onMouseUp={mouseUp}>{majorKey}</button>
     );
 }

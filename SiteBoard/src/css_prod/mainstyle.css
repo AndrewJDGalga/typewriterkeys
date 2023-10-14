@@ -24,6 +24,13 @@
   border-radius: 60%;
 }
 
+.typewriterkey_active {
+  top: 0.2em;
+}
+.typewriterkey_active::after {
+  top: 0;
+}
+
 .page {
   width: auto;
   height: 60vh;
