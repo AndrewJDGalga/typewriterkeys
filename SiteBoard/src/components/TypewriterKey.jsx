@@ -3,10 +3,14 @@ import { useEffect, useState, useCallback } from "react";
 export default function TypewriterKey({majorKey, minorKey}) {
     const audioEffect = new Audio("/audio/TypewriterClickA.wav");
     const [selectedKey, setSelectedKey] = useState(false);
+
+    const typeWriterKey = <button className={selectedKey ? "typewriterkey_active" : "typewriterkey"} onMouseDown={mouseDown} onMouseUp={mouseUp}>{majorKey}</button>
     
     const keypressed = useCallback((e)=>{
-        if(e.key == majorKey) {
-            console.log(majorKey);
+        if(e.key == majorKey && !selectedKey) {
+            mouseDown();
+        } else if (e.key == majorKey && selectedKey) {
+            mouseUp();
         }
     })
 
@@ -14,6 +18,17 @@ export default function TypewriterKey({majorKey, minorKey}) {
         document.addEventListener("keydown", keypressed);
         return ()=> document.removeEventListener("keydown", keypressed);
     }, [keypressed]);
+
+    document.addEventListener("keyup", keypressed);
+
+    function mouseDown(){
+        console.log('down');
+        setSelectedKey(true);
+    }
+    function mouseUp(){
+        console.log('up');
+        setSelectedKey(false);
+    }
 
     function playAudio(){
         if(audioEffect.readyState === 4){
@@ -23,23 +38,8 @@ export default function TypewriterKey({majorKey, minorKey}) {
     }
 
     return (
-        <button className="typewriterkey" onClick={playAudio}>{majorKey}</button>
+        <>
+        {typeWriterKey}
+        </>
     );
 }
-
-/*
-const [clicked, setClicked] = useState(false);
-const btn = <button className="typewriterkey" onMouseDown={handleClick} onMouseUp={handleRelease}>{majorKey}</button>
-
-onMouseDown={handleClick} onMouseUp={handleRelease}
-function handleClick(thing){
-    //btn.classList.add('active');
-    setClicked(true);
-    thing.isActive = clicked;
-}
-
-function handleRelease(thing) {
-    setClicked(false);
-    thing.isActive = clicked;
-}
-*/
