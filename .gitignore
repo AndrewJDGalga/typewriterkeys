@@ -8,7 +8,9 @@
 !SiteBoard/src/components
 !SiteBoard/src/css_dev
 !SiteBoard/src/css_prod
+!SiteBoard/src/data
 !index.html
 !*.jsx
 !*.css
 !*.scss
+!keyData.js
