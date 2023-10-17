@@ -5,6 +5,10 @@ import './css_prod/mainstyle.css';
 
 export default function App() {
   
+  const keyHandler = (operation) => {
+
+  }
+
   return (
     <div className="typewriterapp"> 
       <Page/>
