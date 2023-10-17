@@ -1,8 +1,8 @@
 import { useEffect, useState, useCallback } from "react";
 
-export default function TypewriterKey({majorKey, minorKey, passKeyUp}) {
+export default function TypewriterKey({majorKey, minorKey, passKeyUp, pressed}) {
     //const audioEffect = new Audio("/audio/TypewriterClickA.wav");
-    const [selectedKey, setSelectedKey] = useState(false);
+    const [selectedKey, setSelectedKey] = useState(pressed);
     let curKey = majorKey;
 
     const keypressed = useCallback((e)=>{
@@ -45,6 +45,6 @@ export default function TypewriterKey({majorKey, minorKey, passKeyUp}) {
     }*/
 
     return (
-        <button className={selectedKey ? "typewriterkey typewriterkey_active" : "typewriterkey"} onMouseDown={mouseDown} onMouseUp={mouseUp} >{majorKey}</button>
+        <button className={pressed ? "typewriterkey typewriterkey_active" : "typewriterkey"} onMouseDown={mouseDown} onMouseUp={mouseUp} >{majorKey}</button>
     );
 }

@@ -9,16 +9,22 @@ export default function App() {
     console.log(operationKey);
   }
 
-  const [key, SetKey] = useState(<TypewriterKey majorKey={"a"} minorKey={"A"} passKeyUp={keyHandler}/>);
-  
-  function keyPressed(key) {
-    console.log(key);
+  const [keyboard, setKeyBoard] = useState([<TypewriterKey key={1} majorKey={"a"} minorKey={"A"} passKeyUp={keyHandler} pressed={false}/>]);
+
+  function keyPressed(keyPressed) {
+    if(keyPressed.key === key.props.majorKey) {
+      
+    }
+  }
+
+  function mouseDown() {
+
   }
 
   return (
-    <main onMouseDown={keyPressed} onKeyDown={keyPressed} tabIndex='-1' className="typewriterapp" > 
+    <main onMouseDown={mouseDown} onKeyDown={keyPressed} tabIndex='-1' className="typewriterapp" > 
       <Page />
-      {key}
+      {keyboard}
     </main>
   )
 }
