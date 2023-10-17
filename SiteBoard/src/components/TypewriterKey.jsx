@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 
 export default function TypewriterKey({majorKey, minorKey, passKeyUp}) {
-    const audioEffect = new Audio("/audio/TypewriterClickA.wav");
+    //const audioEffect = new Audio("/audio/TypewriterClickA.wav");
     const [selectedKey, setSelectedKey] = useState(false);
     let curKey = majorKey;
 
@@ -12,13 +12,14 @@ export default function TypewriterKey({majorKey, minorKey, passKeyUp}) {
             mouseUp();
         }
     })
-
+    /*
     useEffect(()=>{
         document.addEventListener("keydown", keypressed);
         return ()=> document.removeEventListener("keydown", keypressed);
     }, [keypressed]);
+    */
 
-    document.addEventListener("keyup", keypressed);
+    //document.addEventListener("keyup", keypressed);
 
     function mouseDown(){
         //console.log('down');
@@ -31,14 +32,19 @@ export default function TypewriterKey({majorKey, minorKey, passKeyUp}) {
         setSelectedKey(false);
     }
 
+    function keyPressed(key){
+        console.log(key);
+    }
+
+    /*
     function playAudio(){
         if(audioEffect.readyState === 4){
             audioEffect.currentTime = 0;
             audioEffect.play();
         }
-    }
+    }*/
 
     return (
-        <button className={selectedKey ? "typewriterkey typewriterkey_active" : "typewriterkey"} onMouseDown={mouseDown} onMouseUp={mouseUp}>{majorKey}</button>
+        <button className={selectedKey ? "typewriterkey typewriterkey_active" : "typewriterkey"} onMouseDown={mouseDown} onMouseUp={mouseUp} >{majorKey}</button>
     );
 }

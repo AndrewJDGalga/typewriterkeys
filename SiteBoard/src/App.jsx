@@ -11,10 +11,14 @@ export default function App() {
 
   const [key, SetKey] = useState(<TypewriterKey majorKey={"a"} minorKey={"A"} passKeyUp={keyHandler}/>);
   
+  function keyPressed(key) {
+    console.log(key);
+  }
+
   return (
-    <div className="typewriterapp"> 
-      <Page/>
+    <main onMouseDown={keyPressed} onKeyDown={keyPressed} tabIndex='-1' className="typewriterapp" > 
+      <Page />
       {key}
-    </div>
+    </main>
   )
 }
