@@ -1,20 +1,27 @@
+import { useState } from "react";
 import TypewriterKey from "./components/TypewriterKey";
 import Page from "./components/Page";
 //import KeyWatcher from "./components/KeyWatcher";
 import './css_prod/mainstyle.css';
-import { useState } from "react";
+import keyData from "./data/keyData";
 
 export default function App() {
+  const [keySrc, setKeySrc] = useState(keyData);
+
   const keyHandler = (operationKey) => {
     console.log(operationKey);
   }
 
-  const [keyboard, setKeyBoard] = useState([<TypewriterKey key={1} majorKey={"a"} minorKey={"A"} passKeyUp={keyHandler} pressed={false}/>]);
+  const keyBoard = keySrc.map((newKey)=>{
+    return <TypewriterKey key={newKey.id} majorKey={newKey.major} minorKey={newKey.minor} passKeyUp={keyHandler} pressed={newKey.pressed}/>
+  })
 
   function keyPressed(keyPressed) {
-    if(keyPressed.key === key.props.majorKey) {
-      
-    }
+    setKeySrc((prev)=>{
+      return prev.map((someKey)=>{
+        return someKey.major === keyPressed.key ? {...someKey, pressed: true } : someKey;
+      })
+    })
   }
 
   function mouseDown() {
@@ -24,7 +31,7 @@ export default function App() {
   return (
     <main onMouseDown={mouseDown} onKeyDown={keyPressed} tabIndex='-1' className="typewriterapp" > 
       <Page />
-      {keyboard}
+      {keyBoard}
     </main>
   )
 }

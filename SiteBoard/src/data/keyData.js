@@ -1,6 +1,8 @@
 export default [
     {
+        id: 1,
         major: 'a',
-        minor: 'A'
+        minor: 'A',
+        pressed: false
     }
 ]
