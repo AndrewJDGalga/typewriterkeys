@@ -24,12 +24,20 @@ export default function App() {
     })
   }
 
+  function keyReleased(keyReleased){
+    setKeySrc((prev)=>{
+      return prev.map((someKey)=>{
+        return someKey.major === keyReleased.key ? {...someKey, pressed: false} : someKey;
+      })
+    })
+  }
+
   function mouseDown() {
 
   }
 
   return (
-    <main onMouseDown={mouseDown} onKeyDown={keyPressed} tabIndex='-1' className="typewriterapp" > 
+    <main onMouseDown={mouseDown} onKeyDown={keyPressed} onKeyUp={keyReleased} tabIndex='-1' className="typewriterapp" > 
       <Page />
       {keyBoard}
     </main>

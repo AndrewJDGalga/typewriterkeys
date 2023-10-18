@@ -6,10 +6,10 @@
   border-radius: 100%;
   border: 2px solid white;
 }
-.typewriterkey:active {
+.typewriterkey:active, .typewriterkey:focus {
   top: 0.2em;
 }
-.typewriterkey:active::after {
+.typewriterkey:active::after, .typewriterkey:focus::after {
   top: 0;
 }
 .typewriterkey::after {

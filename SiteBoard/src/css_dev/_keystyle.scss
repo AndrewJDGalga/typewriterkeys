@@ -6,7 +6,7 @@
     border-radius: 100%;
     border: 2px solid white;
 
-    &:active {
+    &:active, &:focus {
         top: 0.2em;
         &::after {
             top: 0;
