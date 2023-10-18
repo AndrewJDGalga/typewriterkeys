@@ -5,8 +5,9 @@
     background-color: black;
     border-radius: 100%;
     border: 2px solid white;
+    outline: none;
 
-    &:active, &:focus {
+    &:active {
         top: 0.2em;
         &::after {
             top: 0;

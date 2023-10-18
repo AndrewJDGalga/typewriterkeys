@@ -5,11 +5,12 @@
   background-color: black;
   border-radius: 100%;
   border: 2px solid white;
+  outline: none;
 }
-.typewriterkey:active, .typewriterkey:focus {
+.typewriterkey:active {
   top: 0.2em;
 }
-.typewriterkey:active::after, .typewriterkey:focus::after {
+.typewriterkey:active::after {
   top: 0;
 }
 .typewriterkey::after {
@@ -49,6 +50,10 @@ body {
   height: 100%;
   min-height: 100vh;
   background-color: black;
+}
+
+.typewriterapp {
+  outline: none;
 }
 
 /*# sourceMappingURL=mainstyle.css.map */
