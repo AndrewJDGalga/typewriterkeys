@@ -5,6 +5,6 @@ export default function UserTypingListener() {
     }
 
     return (
-        <div className="usertypinglistner" style={{position:'absolute', height:100 + '%', width:100+'%'}} onKeyDown={keyDown} tabIndex={-1}></div>
+        <div className="usertypinglistner" onKeyDown={keyDown} tabIndex={-1}></div>
     )
 }
