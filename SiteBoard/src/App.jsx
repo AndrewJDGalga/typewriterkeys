@@ -1,5 +1,4 @@
 import { useState } from "react";
-//import Key from "./components/Key";
 import TypewriterKeyboard from "./components/TypewriterKeyboard";
 import Page from "./components/Page";
 import './css_prod/mainstyle.css';
@@ -8,7 +7,10 @@ import keyData from "./data/keyData";
 export default function App() {
 
   return (
-    <TypewriterKeyboard />
+    <main className="typewriterapp">
+      <Page />
+      <TypewriterKeyboard />
+    </main>
   )
 
   /*
