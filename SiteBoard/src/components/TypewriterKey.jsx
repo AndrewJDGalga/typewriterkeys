@@ -48,5 +48,3 @@ export default function TypewriterKey({majorKey, minorKey, passKeyUp, pressed}) 
         <button className={pressed ? "typewriterkey typewriterkey_active" : "typewriterkey"} onMouseDown={mouseDown} onMouseUp={mouseUp} >{majorKey}</button>
     );
 }
-
-//className={pressed ? "typewriterkey typewriterkey_active" : "typewriterkey"}
