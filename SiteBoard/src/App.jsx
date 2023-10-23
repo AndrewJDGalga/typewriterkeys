@@ -2,7 +2,6 @@ import { useState } from "react";
 import TypewriterKeyboard from "./components/TypewriterKeyboard";
 import Page from "./components/Page";
 import './css_prod/mainstyle.css';
-import keyData from "./data/keyData";
 
 export default function App() {
 
