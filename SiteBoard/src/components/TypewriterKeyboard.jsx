@@ -13,11 +13,22 @@ export default function TypewriterKeyboard() {
 
     const keyBoard = keySrc.map((newKey)=>{
         return <TypewriterKey key={newKey.id} majorKey={newKey.major} minorKey={newKey.minor} passKeyUp={keyHandler} pressed={newKey.pressed}/>
-      })
+    })
+
+    function relayKeypress(key, active){
+        setKeySrc(prev=>{
+            return prev.map(elem=>{
+                return elem.majorKey === key || elem.minorKey === key ? { ...elem, pressed:active} : elem;
+            })
+        });
+
+        console.log(active);
+        console.log(keySrc);
+    }
 
     return (
         <div className="inputContainer">
-            <UserTypingListener />
+            <UserTypingListener relayFunction={relayKeypress} />
             {keyBoard}
         </div>
     )
