@@ -2,6 +2,7 @@
 export default function UserTypingListener({relayFunction}) {
     
     function keyPressed(keyPressed) {
+        console.log(keyPressed.key);
         relayFunction(keyPressed.key, true);
     }
 

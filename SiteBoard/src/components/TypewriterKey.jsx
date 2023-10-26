@@ -1,9 +1,11 @@
 import { useEffect, useState, useCallback } from "react";
 
-export default function TypewriterKey({majorKey, minorKey, passKeyUp, pressed}) {
+export default function TypewriterKey({majorKey, minorKey, touchOut, keyboardIn }) {
     //const audioEffect = new Audio("/audio/TypewriterClickA.wav");
-    const [selectedKey, setSelectedKey] = useState(pressed);
-    let curKey = majorKey;
+    //const [selectedKey, setSelectedKey] = useState(pressed);
+    //let curKey = majorKey;
+    let pressed = false;
+
 
     const keypressed = useCallback((e)=>{
         if(e.key == majorKey && !selectedKey) {
@@ -23,7 +25,7 @@ export default function TypewriterKey({majorKey, minorKey, passKeyUp, pressed}) 
 
     function mouseDown(){
         //console.log('down');
-        passKeyUp(curKey);
+        //passKeyUp(curKey);
         setSelectedKey(true);
 
     }

@@ -3,6 +3,7 @@ export default [
         id: 1,
         major: 'a',
         minor: 'A',
-        pressed: false
+        pressed: false,
+        shifted: false
     }
 ]
